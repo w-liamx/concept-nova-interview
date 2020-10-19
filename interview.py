@@ -11,9 +11,16 @@ def checkTrend(a):
         if value > (a[idx - 1]):
             uptrend.append(idx - 1)
             downtrend.clear()
-        else:
+            print("uptrend", uptrend)
+            print(downtrend)
+        elif value < (a[idx - 1]):
             downtrend.append(idx - 1)
             uptrend.clear()
+            print("uptrend",uptrend)
+            print(downtrend)
+        else:
+            uptrend.clear()
+            downtrend.clear()
 
         if len(uptrend) == 3 or len(downtrend) == 3 :
             if len(uptrend) == 3:
@@ -21,8 +28,8 @@ def checkTrend(a):
             if len(downtrend) == 3:
                 index = downtrend[0]
             break
-    returned['uptrend'] = up_count == 3
-    returned['downtrend'] = down_count == 3
+    returned['uptrend'] = len(uptrend) == 3
+    returned['downtrend'] = len(downtrend) == 3
     returned['index'] = index
     return returned
     
@@ -31,4 +38,4 @@ def checkTrend(a):
 
 print(checkTrend(a))      
 print(checkTrend(b))      
-print(checkTrend(c)) 
+print(checkTrend(c))      
