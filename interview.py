@@ -10,18 +10,10 @@ def checkTrend(a):
     for idx, value in enumerate(a):
         if value > (a[idx - 1]):
             uptrend.append(idx - 1)
-            up_count += 1
-            down_count = 0
             downtrend.clear()
-            print("uptrend", uptrend)
-            print(downtrend)
         else:
             downtrend.append(idx - 1)
-            down_count += 1
-            up_count = 0
             uptrend.clear()
-            print("uptrend",uptrend)
-            print(downtrend)
 
         if len(uptrend) == 3 or len(downtrend) == 3 :
             if len(uptrend) == 3:
@@ -29,8 +21,6 @@ def checkTrend(a):
             if len(downtrend) == 3:
                 index = downtrend[0]
             break
-    print("up count: ", up_count)
-    print("down count: ", down_count)
     returned['uptrend'] = up_count == 3
     returned['downtrend'] = down_count == 3
     returned['index'] = index
