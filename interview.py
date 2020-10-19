@@ -3,12 +3,7 @@ a = [2, 3, 1, 19, 18, 12, 7, 18, 22, 32, 20, 11, 8, 5]
 def checkTrend(a):
     uptrend = []
     downtrend = []
-    returned = {"uptrend": False, "downtrend": False, "index": None}
-    index = None
-    up_idx = None
-    up_count = 0
-    down_idx = None
-    down_count = 0
+    returned = {"uptrend": False, "downtrend": False, "index": -1}
     for idx, value in enumerate(a):
         if idx == 0:
             uptrend.append(0)
